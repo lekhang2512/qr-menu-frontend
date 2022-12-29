@@ -12,6 +12,12 @@ export interface CountryProps {
 export default function Country (props: CountryProps) {
   const [selected, setSelected] = useState({ code: 'VN', label: 'Vietnam', phone: '84' })
 
+  const handleSelected = (event, value) => {
+    if (value) {
+      setSelected(value)
+    }
+  }
+
   return (
     <Autocomplete
       className="dd-select--country"
@@ -70,7 +76,7 @@ export default function Country (props: CountryProps) {
         />
       }
       clearIcon=""
-      onChange={(event, value) => setSelected(value)}
+      onChange={handleSelected}
       defaultValue={selected}
     />
   );
