@@ -123,30 +123,27 @@ export default function LoginPage (props: LoginPageProps) {
               justifyContent="space-between"
               alignItems="center"
             >
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    defaultChecked
-                    icon={
-                      <Image
-                        src="/tick-square.svg"
-                        alt="Tick square"
-                        width={24}
-                        height={24}
-                      />
-                    }
-                    checkedIcon={
-                      <Image
-                        src="/tick-square-checked.svg"
-                        alt="Tick square checked"
-                        width={24}
-                        height={24}
-                      />
-                    }
-                  />
-                }
-                label="Remember Me"
-              />
+              <Stack direction="row" alignItems="center">
+                <Checkbox
+                  icon={
+                    <Image
+                      src="/square.svg"
+                      alt="Square"
+                      width={24}
+                      height={24}
+                    />
+                  }
+                  checkedIcon={
+                    <Image
+                      src="/tick-square-checked.svg"
+                      alt="Tick square checked"
+                      width={24}
+                      height={24}
+                    />
+                  }
+                />
+                Remember Me
+              </Stack>
               <Link href="/forgot-password" className="dd-btn--link">Forgot password?</Link>
             </Stack>
           </Stack>
