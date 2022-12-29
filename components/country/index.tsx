@@ -12,7 +12,7 @@ export interface CountryProps {
 export default function Country (props: CountryProps) {
   const [selected, setSelected] = useState({ code: 'VN', label: 'Vietnam', phone: '84' })
 
-  const handleSelected = (event: React.ChangeEvent<HTMLInputElement>, value: any) => {
+  const handleSelected = (event: any, value: any) => {
     if (value) {
       setSelected(value)
     }
