@@ -33,17 +33,17 @@
 }
 
 .dd-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    line-height: 28px;
-    letter-spacing: 0.02em;
+    padding: 10px 20px !important;
+    font-size: 18px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    line-height: 28px !important;
+    letter-spacing: 0.02em !important;
 }
 .dd-btn--primary, .dd-btn--primary:hover {
-    background: $primaryColor;
-    color: $whiteColor;
+    background: $primaryColor !important;
+    color: $whiteColor !important;
 }
 .dd-btn--outline {
     background: $whiteColor;

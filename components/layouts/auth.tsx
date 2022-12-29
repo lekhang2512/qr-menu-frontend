@@ -18,14 +18,16 @@ export default function AuthLayout (props: AuthLayoutProps) {
             direction={{ xs: 'column', sm: 'row' }}
             justifyContent={{ xs: 'center', sm: 'space-between'}}
           >
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              width={356}
-              height={69}
-              priority
-              className="dd-logo"
-            />
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="Logo"
+                width={356}
+                height={69}
+                priority
+                className="dd-logo"
+              />
+            </Link>
             <Stack
               direction="row"
               alignItems="center"
