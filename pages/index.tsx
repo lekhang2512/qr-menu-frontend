@@ -15,7 +15,7 @@ export default function HomePage (props: HomePageProps) {
           <Link href="/login">Login</Link>
         </li>
         <li>
-          <Link href="/register">Register</Link>
+          <Link href="/sign-up">Register</Link>
         </li>
         <li>
           <Link href="/forgot-password">Forgot password</Link>
