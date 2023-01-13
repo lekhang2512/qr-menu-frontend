@@ -18,8 +18,9 @@ import Country from '../components/country';
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useAppDispatch, useAppSelector } from '../app/hook';
-import { signUp } from '../features/user/user-slice';
+import { signUp, resetStateSignUp } from '../features/user/user-slice';
 import { useRouter } from 'next/router'
+import LoadingButton from '@mui/lab/LoadingButton'
 
 export interface RegisterPageProps {
 }
@@ -28,6 +29,7 @@ export default function RegisterPage (props: RegisterPageProps) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch()
   const isRegistered = useAppSelector((state) => state.user.isRegistered)
+  const isLoading = useAppSelector((state) => state.user.isLoading)
   const router = useRouter()
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -57,6 +59,7 @@ export default function RegisterPage (props: RegisterPageProps) {
 
   useEffect(() => {
     if (isRegistered) {
+      dispatch(resetStateSignUp())
       router.push('/login')
     }
   }, [router, isRegistered])
@@ -230,7 +233,7 @@ export default function RegisterPage (props: RegisterPageProps) {
               </Stack>
             </Stack>
           </CardContent>
-          <Button type="submit" fullWidth className="dd-btn dd-btn--primary">Sign up</Button>
+          <LoadingButton loading={isLoading} type="submit" fullWidth className="dd-btn dd-btn--primary">Sign up</LoadingButton>
 
           <Stack
             direction="row"

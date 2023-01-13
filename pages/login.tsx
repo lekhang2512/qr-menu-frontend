@@ -17,8 +17,9 @@ import AuthLayout from '../components/layouts/auth'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useAppDispatch, useAppSelector } from '../app/hook';
-import { signIn, googleLogin } from '../features/user/user-slice';
+import { signIn, googleLogin, resetStateLogin } from '../features/user/user-slice';
 import { useRouter } from 'next/router'
+import LoadingButton from '@mui/lab/LoadingButton'
 
 export interface LoginPageProps {
 }
@@ -27,6 +28,7 @@ export default function LoginPage (props: LoginPageProps) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch()
   const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated)
+  const isLoading = useAppSelector((state) => state.user.isLoading)
   const router = useRouter()
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -59,9 +61,10 @@ export default function LoginPage (props: LoginPageProps) {
 
   useEffect(() => {
     if (isAuthenticated) {
+      dispatch(resetStateLogin())
       router.push('/')
     }
-  }, [router, isAuthenticated])
+  }, [router, isAuthenticated, dispatch])
 
   return (
     <AuthLayout>
@@ -199,7 +202,7 @@ export default function LoginPage (props: LoginPageProps) {
               </Stack>
             </Stack>
           </CardContent>
-          <Button type="submit" fullWidth className="dd-btn dd-btn--primary">Log in</Button>
+          <LoadingButton loading={isLoading} type="submit" fullWidth className="dd-btn dd-btn--primary">Log in</LoadingButton>
 
           <Stack
             direction="row"
